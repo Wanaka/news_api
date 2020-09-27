@@ -5,51 +5,73 @@
     android:id="@+id/article"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ArticleDetailsFragment">
+    tools:context=".ui.article.ArticleDetailsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/articleDetailImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars"
-            tools:srcCompat="@tools:sample/avatars" />
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/articleDetailHeadline"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:text="Headline"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/articleDetailImage" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/articleDetailUrl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="url"
-            app:layout_constraintStart_toStartOf="@+id/articleDetailHeadline"
-            app:layout_constraintTop_toBottomOf="@+id/articleDetailHeadline" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/articleDetailcontent"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="Content"
-            app:layout_constraintEnd_toEndOf="@+id/articleDetailHeadline"
-            app:layout_constraintStart_toStartOf="@+id/articleDetailHeadline"
-            app:layout_constraintTop_toBottomOf="@+id/articleDetailHeadline" />
+                    <ImageView
+                        android:id="@+id/articleDetailImage"
+                        android:layout_width="0dp"
+                        android:layout_height="200dp"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:src="@tools:sample/avatars" />
+
+                    <TextView
+                        android:id="@+id/articleDetailcontent"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginBottom="32dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/articleDetailUrl"
+                        app:layout_constraintStart_toStartOf="@+id/articleDetailUrl"
+                        app:layout_constraintTop_toBottomOf="@+id/articleDetailUrl" />
+
+                    <TextView
+                        android:id="@+id/articleDetailHeadline"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@+id/articleDetailImage"
+                        app:layout_constraintStart_toStartOf="@+id/articleDetailImage"
+                        app:layout_constraintTop_toBottomOf="@+id/articleDetailImage" />
+
+                    <TextView
+                        android:id="@+id/articleDetailUrl"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:textAlignment="viewStart"
+                        android:textStyle="italic"
+                        app:layout_constraintEnd_toEndOf="@+id/articleDetailHeadline"
+                        app:layout_constraintStart_toStartOf="@+id/articleDetailHeadline"
+                        app:layout_constraintTop_toBottomOf="@+id/articleDetailHeadline" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </ScrollView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

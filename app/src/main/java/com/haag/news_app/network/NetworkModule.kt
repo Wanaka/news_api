@@ -1,5 +1,6 @@
 package com.haag.news_app.network
 
+import com.haag.news_app.utils.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,24 +14,13 @@ import javax.inject.Singleton
 @InstallIn(ApplicationComponent::class)
 class NetworkModule {
 
-
     @Singleton
     @Provides
-    fun providesOkHttpClient(): OkHttpClient {
-        return OkHttpClient.Builder().build()
-    }
-
-    @Singleton
-    @Provides
-    fun NewsApi(OkHttpClient: OkHttpClient): NewsAPI {
+    fun newsApi(): NewsAPI {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
-//            .baseUrl("https://api.chucknorris.io/jokes/")
-            .baseUrl("https://newsapi.org/v2/")
-            .client(OkHttpClient)
+            .baseUrl(Constants.URL)
             .build()
             .create(NewsAPI::class.java)
-
-        //top-headlines?country=us&apiKey=05588972af7943188910742037f61d0f
     }
 }

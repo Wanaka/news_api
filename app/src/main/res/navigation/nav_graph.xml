@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/newsFragment"
-        android:name="com.haag.news_app.ui.NewsFragment"
+        android:name="com.haag.news_app.ui.newsList.NewsFragment"
         android:label="fragment_news"
         tools:layout="@layout/fragment_news" >
         <action
@@ -16,7 +16,12 @@
     </fragment>
     <fragment
         android:id="@+id/articleDetailsFragment"
-        android:name="com.haag.news_app.ui.ArticleDetailsFragment"
+        android:name="com.haag.news_app.ui.article.ArticleDetailsFragment"
         android:label="fragment_article_details"
-        tools:layout="@layout/fragment_article_details" />
+        tools:layout="@layout/fragment_article_details" >
+        <argument
+            android:name="articleArgs"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 </navigation>

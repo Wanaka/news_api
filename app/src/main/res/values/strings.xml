@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">news_app</string>
+    <string name="app_name">Top Dutch News</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="go_to_article_web">>> Go to the article</string>
 </resources>
