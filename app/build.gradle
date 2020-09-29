@@ -12,6 +12,10 @@ android {
     compileSdkVersion 29
     buildToolsVersion "30.0.1"
 
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+
     defaultConfig {
         applicationId "com.haag.news_app"
         minSdkVersion 26
@@ -49,6 +53,17 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation 'androidx.test:runner:1.3.0'
+
+
+    //Mockk
+    def mockk_version = "1.10.2"
+    testImplementation "io.mockk:mockk:$mockk_version"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7"
+
+    //Coroutine test
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.9'
+
 
     // Navigation
     def nav_version = "2.3.0"

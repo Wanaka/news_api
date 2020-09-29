@@ -1,17 +1,35 @@
 package com.haag.news_app
 
+import androidx.lifecycle.LifecycleOwner
+import com.haag.news_app.repo.NewsRepository
+import com.haag.news_app.room.Read
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.mockk
+import kotlinx.coroutines.runBlocking
 import org.junit.Test
+import org.junit.Before
 
-import org.junit.Assert.*
 
-/**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
 class ExampleUnitTest {
+
+    private lateinit var repo: NewsRepository
+    lateinit var lifecycleOwner: LifecycleOwner
+
+    @Before
+    fun setup() {
+        lifecycleOwner = mockk()
+        repo = mockk()
+    }
+
     @Test
-    fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+    fun `create_getTitleList()_mock`() {
+        var readList = mutableListOf<Read>()
+        var read = Read("Dutch news")
+        readList.add(read)
+
+        coEvery { repo.getTitleList() } returns readList
+        runBlocking { repo.getTitleList() }
+        coVerify { repo.getTitleList() }
     }
 }

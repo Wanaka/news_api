@@ -13,9 +13,8 @@ class NewsRepository @Inject constructor(
     private val dao: ArticleDao
 ) {
 
-    suspend fun getTopNews(): Response<ArticleResponse> {
-        return newsAPI.getTopNews(Constants.COUNTRY, Constants.API_KEY)
-    }
+    suspend fun getTopNews(): Response<ArticleResponse> =
+        newsAPI.getTopNews(Constants.COUNTRY, Constants.API_KEY)
 
     suspend fun insertTitleDao(title: Read) {
         dao.insert(title)
